@@ -24,15 +24,20 @@ body{
     background-color: var(--card-front-color);
     text-align: center;
     height: 100%;
+    transform-style: preserve-3d;
+    transform: transition 300ms ease-in-out;
 }
 
 .cartao_conteudo h3 {
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
     background: var(--text-color);
     text-align: left;
     padding: 0.5rem;
     position: absolute;
     margin: 0.6rem;
     border-radius: 0.6rem;
+    backface-visibility: hidden;
     font-size: 1vw;
 }
 
@@ -41,6 +46,30 @@ body{
     padding: 2rem;
 }
 
+.cartao__conteudo__pergunta p {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.cartao__conteudo__resposta p {
+    color: var(--card-back-color);
+    font-weight: 700;
+}
+
+.cartao:hover .cartao_conteudo {
+    transform: rotate('180deg');
+}
+.cartao__conteudo__pergunta,
+.cartao__conteudo__resposta {
+    backface-visibility: hidden;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.cartao__conteudo__resposta {
+    transform: rotate(180deg);
+}
 footer {
     background-color: black;
     color: white;
